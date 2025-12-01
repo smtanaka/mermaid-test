@@ -37,9 +37,6 @@ sequenceDiagram
 
     Note over Module: ＜トークンリフレッシュ時＞
     Module->>CCA_Server: トークンエンドポイント呼び出し (JWTヘッダ付与)
-
-
-
 ```mermaid
 sequenceDiagram
     participant Module
