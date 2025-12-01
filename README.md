@@ -40,6 +40,7 @@ sequenceDiagram
 
 
 
+```mermaid
 sequenceDiagram
     participant Module
     participant SecureEnclave
