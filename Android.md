@@ -10,11 +10,14 @@ sequenceDiagram
 
     Note over Module: ＜初回ログイン時＞
 
-    Module->>KeyStore: 鍵ペア作成要求 & 公開鍵取得
+    Module->>KeyStore: 鍵ペア作成要求 & 公開鍵要求
+    KeyStore-->>Module: 公開鍵返却
     Module->>CCA_Server: KeyAttestation用challenge要求
     CCA_Server-->>Module: challenge返却
-    Module->>KeyStore: KeyAttestation取得
-    Module->>PlayIntegrityAPI: Play Integrityトークン取得
+    Module->>KeyStore: KeyAttestation要求
+    KeyStore-->>Module: KeyAttestation返却
+    Module->>PlayIntegrityAPI: Play Integrityトークン要求
+    PlayIntegrityAPI->>Module: Play Integrityトークン返却
 
     Module->>CCA_Server: API呼び出し (KeyAttestation, PlayIntegrityトークン, 公開鍵)
     alt KeyAttestationあり
