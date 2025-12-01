@@ -14,6 +14,8 @@ sequenceDiagram
     Module->>SecureEnclave: 鍵ペア作成要求 & 公開鍵要求
     SecureEnclave-->>Module: 公開鍵返却
     alt アプリから要求あり
+        Module->>CCA_Server: attestationObject用challenge要求
+        CCA_Server-->>Module: challenge返却
         Module->>AppAttest: attestationObject要求
         AppAttest-->>Module: attestationObject返却
     end
