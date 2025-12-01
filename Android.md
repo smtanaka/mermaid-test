@@ -16,8 +16,10 @@ sequenceDiagram
     CCA_Server-->>Module: challenge返却
     Module->>KeyStore: KeyAttestation要求
     KeyStore-->>Module: KeyAttestation返却
-    Module->>PlayIntegrityAPI: Play Integrityトークン要求
-    PlayIntegrityAPI->>Module: Play Integrityトークン返却
+    alt アプリから要求あり
+        Module->>PlayIntegrityAPI: Play Integrityトークン要求
+        PlayIntegrityAPI->>Module: Play Integrityトークン返却
+    end
 
     Module->>CCA_Server: Client Attestation JWT発行API呼び出し (KeyAttestation, PlayIntegrityトークン, 公開鍵)
     alt KeyAttestationあり
